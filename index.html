@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>timestamps</title>
+    <style>
+    * { font-family: monospace; padding: 0; margin: 0; }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        const div = document.querySelector('div')
+        const eventSource = new EventSource('/stream')
+        eventSource.addEventListener('open', (e) => {
+            const p = document.createElement('p')
+            p.innerText = 'connected'
+            div.prepend(p)
+        })
+        eventSource.addEventListener('message', (e) => {
+            const p = document.createElement('p')
+            p.innerText = e.data
+            div.prepend(p)
+        })
+        eventSource.addEventListener('error', (e) => {
+            const p = document.createElement('p')
+            p.innerText = 'error'
+            div.prepend(p)
+        })
+    </script>
+</body>
+</html>
