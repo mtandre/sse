@@ -1,5 +1,5 @@
 {
-  "name": "server sent events",
+  "name": "timestamp-sse",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
